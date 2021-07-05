@@ -221,40 +221,7 @@ var test_phase = {
     timeline_variables: testwords,
 };
 
-
-
-//Present the test word pairs using buttons
-
-/*var test_phase = {
-  timeline: [
-    {
-      type: 'html-button-response',
-      stimulus: '',
-      choices: [jsPsych.timelineVariable("test1"),jsPsych.timelineVariable("test2")],
-      prompt: "<p>Click on the word that conforms to the rule</p>",
-      data: {first_alt_word: jsPsych.timelineVariable ("data1"), second_alt_word: jsPsych.timelineVariable("data2")},
-      response_ends_trial:true,
-      post_trial_gap: 500,
-      save_trial_parameters: {
-        choices: true,
-        stimulus: false,
-      },
-      
-      on_finish: function(data) {
-        resp = jsPsych.data.get().last(1).values()[0].response;
-        cate = [jsPsych.timelineVariable("data1"),jsPsych.timelineVariable("data2")][resp].category; //change to 'type' for exps 3 and 4
-        if(cate === "AB"){data.correct = 1;}else{data.correct = 0;} // change to 'CN' for exp 2
-        
-      },
-      
-    },
-  ],
-  timeline_variables: testwords,
-  randomize_order: true,
-
-}; 
-*/
-
+//question trial
 var question_trial = {
   type: 'survey-html-form',
   button_label: 'Click here to continue',
