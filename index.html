@@ -205,32 +205,27 @@ var test_instructions = {
 },
 };
 
+//Present the test words
+var test_phase = {
+    timeline: [
+        {
+            type: 'html-keyboard-response',
+            stimulus: jsPsych.timelineVariable('stimulus'),
+            choices: ['y', 'n'],
+            data: jsPsych.timelineVariable("data"),
+            response_ends_trial:true,
+            post_trial_gap: 500 // like a blank 500
+        }
+    ],
+    randomize_order: true,
+    timeline_variables: testwords,
+};
 
- // CUSTOM SHUFFLE FUNCTION
- function shuffle_variable(testwords_list){
-  for(i=0; i<testwords_list.length; i++){ //for every trial, i++ means i+1
-    W1 = testwords_list[i].test1; // save the 2 words
-    W2 = testwords_list[i].test2;
-    WL = [W1,W2]; // put words in a list/array
-    D1 = testwords_list[i].data1; // save the 2 data tags
-    D2 = testwords_list[i].data2;
-    DL = [D1,D2]; // put data tags in a list/array
-    My_ord = jsPsych.randomization.repeat([0,1],1); // randomize the list/array - the 2 indicies that we have
-    
-    testwords_list[i].test1 = WL[My_ord[0]]; // replace words in actual variable
-    testwords_list[i].test2 = WL[My_ord[1]];
-    testwords_list[i].data1 = DL[My_ord[0]]; // replace words in actual variable
-    testwords_list[i].data2 = DL[My_ord[1]];
-  }
-  return(testwords_list) // return that list to the variable
-}
-testwords=shuffle_variable(testwords); // this will use the above function and shuffle the words/items that you want shuffled
-//console.log(testwords); //will print for testing purposes. comment out for final exp
 
 
 //Present the test word pairs using buttons
 
-var test_phase = {
+/*var test_phase = {
   timeline: [
     {
       type: 'html-button-response',
@@ -257,7 +252,8 @@ var test_phase = {
   timeline_variables: testwords,
   randomize_order: true,
 
-};
+}; 
+*/
 
 var question_trial = {
   type: 'survey-html-form',
@@ -267,21 +263,6 @@ var question_trial = {
   autofocus: 'test-resp-box'
 };
 
-// //Present the test words
-// var test_phase = {
-//     timeline: [
-//         {
-//             type: 'html-keyboard-response',
-//             stimulus: jsPsych.timelineVariable('stimulus'),
-//             choices: ['y', 'n'],
-//             data: jsPsych.timelineVariable("data"),
-//             response_ends_trial:true,
-//             post_trial_gap: 500 // like a blank 500
-//         }
-//     ],
-//     randomize_order: true,
-//     timeline_variables: testwords,
-// };
 
 // set up debrief block
 var debrief = {
